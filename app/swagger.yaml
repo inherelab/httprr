@@ -1,0 +1,1193 @@
+---
+swagger: "2.0"
+info:
+  description: "A simple HTTP Request & Response Service.<br/> <br/> <b>Run locally:\
+    \ </b> <code>$ docker run -p 80:80 inherelab/httprr</code>"
+  version: "0.0.1"
+  title: "httprr.trys.cc"
+  contact:
+    name: "Inhere"
+    url: "https://github.com/inhere"
+    email: "in.798@qq.com"
+host: "h.trys.cc"
+basePath: "/"
+tags:
+- name: "HTTP Methods"
+  description: "Testing different HTTP verbs"
+- name: "Auth"
+  description: "Auth methods"
+- name: "Status codes"
+  description: "Generates responses with given status code"
+- name: "Request inspection"
+  description: "Inspect the request data"
+- name: "Response inspection"
+  description: "Inspect the response data like caching and headers"
+- name: "Response formats"
+  description: "Returns responses in different data formats"
+- name: "Dynamic data"
+  description: "Generates random and dynamic data"
+- name: "Cookies"
+  description: "Creates, reads and deletes Cookies"
+- name: "Images"
+  description: "Returns different image formats"
+- name: "Redirects"
+  description: "Returns different redirect responses"
+- name: "Anything"
+  description: "Returns anything that is passed to request"
+schemes:
+- "https"
+paths:
+  /absolute-redirect/{n}:
+    get:
+      tags:
+      - "Redirects"
+      summary: "Absolutely 302 Redirects n times."
+      produces:
+      - "text/html"
+      parameters:
+      - name: "n"
+        in: "path"
+        required: true
+        type: "integer"
+        x-exportParamName: "N"
+      responses:
+        "302":
+          description: "A redirection."
+  /anything:
+    get:
+      tags:
+      - "Anything"
+      summary: "Returns anything passed in request data."
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        "200":
+          description: "Anything passed in request"
+    post:
+      tags:
+      - "Anything"
+      summary: "Returns anything passed in request data."
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        "200":
+          description: "Anything passed in request"
+    put:
+      tags:
+      - "Anything"
+      summary: "Returns anything passed in request data."
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        "200":
+          description: "Anything passed in request"
+    delete:
+      tags:
+      - "Anything"
+      summary: "Returns anything passed in request data."
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        "200":
+          description: "Anything passed in request"
+    patch:
+      tags:
+      - "Anything"
+      summary: "Returns anything passed in request data."
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        "200":
+          description: "Anything passed in request"
+  /anything/{anything}:
+    get:
+      tags:
+      - "Anything"
+      summary: "Returns anything passed in request data."
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        "200":
+          description: "Anything passed in request"
+    post:
+      tags:
+      - "Anything"
+      summary: "Returns anything passed in request data."
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        "200":
+          description: "Anything passed in request"
+    put:
+      tags:
+      - "Anything"
+      summary: "Returns anything passed in request data."
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        "200":
+          description: "Anything passed in request"
+    delete:
+      tags:
+      - "Anything"
+      summary: "Returns anything passed in request data."
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        "200":
+          description: "Anything passed in request"
+    patch:
+      tags:
+      - "Anything"
+      summary: "Returns anything passed in request data."
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        "200":
+          description: "Anything passed in request"
+  /base64/{value}:
+    get:
+      tags:
+      - "Dynamic data"
+      summary: "Decodes base64url-encoded string."
+      produces:
+      - "text/html"
+      parameters:
+      - name: "value"
+        in: "path"
+        required: true
+        type: "string"
+        default: "SFRUUEJJTiBpcyBhd2Vzb21l"
+        x-exportParamName: "Value"
+      responses:
+        "200":
+          description: "Decoded base64 content."
+  /basic-auth/{user}/{passwd}:
+    get:
+      tags:
+      - "Auth"
+      summary: "Prompts the user for authorization using HTTP Basic Auth."
+      produces:
+      - "application/json"
+      parameters:
+      - name: "user"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "User"
+      - name: "passwd"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Passwd"
+      responses:
+        "200":
+          description: "Sucessful authentication."
+        "401":
+          description: "Unsuccessful authentication."
+  /bearer:
+    get:
+      tags:
+      - "Auth"
+      summary: "Prompts the user for authorization using bearer authentication."
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Authorization"
+        in: "header"
+        required: false
+        x-exportParamName: "Authorization"
+      responses:
+        "200":
+          description: "Sucessful authentication."
+        "401":
+          description: "Unsuccessful authentication."
+  /brotli:
+    get:
+      tags:
+      - "Response formats"
+      summary: "Returns Brotli-encoded data."
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        "200":
+          description: "Brotli-encoded data."
+  /bytes/{n}:
+    get:
+      tags:
+      - "Dynamic data"
+      summary: "Returns n random bytes generated with given seed"
+      produces:
+      - "application/octet-stream"
+      parameters:
+      - name: "n"
+        in: "path"
+        required: true
+        type: "int"
+        x-exportParamName: "N"
+      responses:
+        "200":
+          description: "Bytes."
+  /cache:
+    get:
+      tags:
+      - "Response inspection"
+      summary: "Returns a 304 if an If-Modified-Since header or If-None-Match is present.\
+        \ Returns the same as a GET otherwise."
+      produces:
+      - "application/json"
+      parameters:
+      - name: "If-Modified-Since"
+        in: "header"
+        required: false
+        x-exportParamName: "IfModifiedSince"
+      - name: "If-None-Match"
+        in: "header"
+        required: false
+        x-exportParamName: "IfNoneMatch"
+      responses:
+        "200":
+          description: "Cached response"
+        "304":
+          description: "Modified"
+  /cache/{value}:
+    get:
+      tags:
+      - "Response inspection"
+      summary: "Sets a Cache-Control header for n seconds."
+      produces:
+      - "application/json"
+      parameters:
+      - name: "value"
+        in: "path"
+        required: true
+        type: "integer"
+        x-exportParamName: "Value"
+      responses:
+        "200":
+          description: "Cache control set"
+  /cookies:
+    get:
+      tags:
+      - "Cookies"
+      summary: "Returns cookie data."
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        "200":
+          description: "Set cookies."
+  /cookies/delete:
+    get:
+      tags:
+      - "Cookies"
+      summary: "Deletes cookie(s) as provided by the query string and redirects to\
+        \ cookie list."
+      produces:
+      - "text/plain"
+      parameters:
+      - name: "freeform"
+        in: "query"
+        required: false
+        allowEmptyValue: true
+        x-exportParamName: "Freeform"
+      responses:
+        "200":
+          description: "Redirect to cookie list"
+  /cookies/set:
+    get:
+      tags:
+      - "Cookies"
+      summary: "Sets cookie(s) as provided by the query string and redirects to cookie\
+        \ list."
+      produces:
+      - "text/plain"
+      parameters:
+      - name: "freeform"
+        in: "query"
+        required: false
+        allowEmptyValue: true
+        x-exportParamName: "Freeform"
+      responses:
+        "200":
+          description: "Redirect to cookie list"
+  /cookies/set/{name}/{value}:
+    get:
+      tags:
+      - "Cookies"
+      summary: "Sets a cookie and redirects to cookie list."
+      produces:
+      - "text/plain"
+      parameters:
+      - name: "name"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Name"
+      - name: "value"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Value"
+      responses:
+        "200":
+          description: "Set cookies and redirects to cookie list."
+  /deflate:
+    get:
+      tags:
+      - "Response formats"
+      summary: "Returns Deflate-encoded data."
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        "200":
+          description: "Defalte-encoded data."
+  /delay/{delay}:
+    get:
+      tags:
+      - "Dynamic data"
+      summary: "Returns a delayed response (max of 10 seconds)."
+      produces:
+      - "application/json"
+      parameters:
+      - name: "delay"
+        in: "path"
+        required: true
+        type: "int"
+        x-exportParamName: "Delay"
+      responses:
+        "200":
+          description: "A delayed response."
+    post:
+      tags:
+      - "Dynamic data"
+      summary: "Returns a delayed response (max of 10 seconds)."
+      produces:
+      - "application/json"
+      parameters:
+      - name: "delay"
+        in: "path"
+        required: true
+        type: "int"
+        x-exportParamName: "Delay"
+      responses:
+        "200":
+          description: "A delayed response."
+    put:
+      tags:
+      - "Dynamic data"
+      summary: "Returns a delayed response (max of 10 seconds)."
+      produces:
+      - "application/json"
+      parameters:
+      - name: "delay"
+        in: "path"
+        required: true
+        type: "int"
+        x-exportParamName: "Delay"
+      responses:
+        "200":
+          description: "A delayed response."
+    delete:
+      tags:
+      - "Dynamic data"
+      summary: "Returns a delayed response (max of 10 seconds)."
+      produces:
+      - "application/json"
+      parameters:
+      - name: "delay"
+        in: "path"
+        required: true
+        type: "int"
+        x-exportParamName: "Delay"
+      responses:
+        "200":
+          description: "A delayed response."
+    patch:
+      tags:
+      - "Dynamic data"
+      summary: "Returns a delayed response (max of 10 seconds)."
+      produces:
+      - "application/json"
+      parameters:
+      - name: "delay"
+        in: "path"
+        required: true
+        type: "int"
+        x-exportParamName: "Delay"
+      responses:
+        "200":
+          description: "A delayed response."
+  /delete:
+    delete:
+      tags:
+      - "HTTP Methods"
+      summary: "The request's DELETE parameters."
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        "200":
+          description: "The request's DELETE parameters."
+  /deny:
+    get:
+      tags:
+      - "Response formats"
+      summary: "Returns page denied by robots.txt rules."
+      produces:
+      - "text/plain"
+      parameters: []
+      responses:
+        "200":
+          description: "Denied message"
+  /digest-auth/{qop}/{user}/{passwd}:
+    get:
+      tags:
+      - "Auth"
+      summary: "Prompts the user for authorization using Digest Auth."
+      produces:
+      - "application/json"
+      parameters:
+      - name: "qop"
+        in: "path"
+        description: "auth or auth-int"
+        required: true
+        type: "string"
+        x-exportParamName: "Qop"
+      - name: "user"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "User"
+      - name: "passwd"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Passwd"
+      responses:
+        "200":
+          description: "Sucessful authentication."
+        "401":
+          description: "Unsuccessful authentication."
+  /digest-auth/{qop}/{user}/{passwd}/{algorithm}:
+    get:
+      tags:
+      - "Auth"
+      summary: "Prompts the user for authorization using Digest Auth + Algorithm."
+      produces:
+      - "application/json"
+      parameters:
+      - name: "qop"
+        in: "path"
+        description: "auth or auth-int"
+        required: true
+        type: "string"
+        x-exportParamName: "Qop"
+      - name: "user"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "User"
+      - name: "passwd"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Passwd"
+      - name: "algorithm"
+        in: "path"
+        description: "MD5, SHA-256, SHA-512"
+        required: true
+        type: "string"
+        default: "MD5"
+        x-exportParamName: "Algorithm"
+      responses:
+        "200":
+          description: "Sucessful authentication."
+        "401":
+          description: "Unsuccessful authentication."
+  /digest-auth/{qop}/{user}/{passwd}/{algorithm}/{stale_after}:
+    get:
+      tags:
+      - "Auth"
+      summary: "Prompts the user for authorization using Digest Auth + Algorithm."
+      description: "allow settings the stale_after argument.\n"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "qop"
+        in: "path"
+        description: "auth or auth-int"
+        required: true
+        type: "string"
+        x-exportParamName: "Qop"
+      - name: "user"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "User"
+      - name: "passwd"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Passwd"
+      - name: "algorithm"
+        in: "path"
+        description: "MD5, SHA-256, SHA-512"
+        required: true
+        type: "string"
+        default: "MD5"
+        x-exportParamName: "Algorithm"
+      - name: "stale_after"
+        in: "path"
+        required: true
+        type: "string"
+        default: "never"
+        x-exportParamName: "StaleAfter"
+      responses:
+        "200":
+          description: "Sucessful authentication."
+        "401":
+          description: "Unsuccessful authentication."
+  /drip:
+    get:
+      tags:
+      - "Dynamic data"
+      summary: "Drips data over a duration after an optional initial delay."
+      produces:
+      - "application/octet-stream"
+      parameters:
+      - name: "duration"
+        in: "query"
+        description: "The amount of time (in seconds) over which to drip each byte"
+        required: false
+        type: "number"
+        default: 2.0
+        x-exportParamName: "Duration"
+        x-optionalDataType: "Float32"
+      - name: "numbytes"
+        in: "query"
+        description: "The number of bytes to respond with"
+        required: false
+        type: "integer"
+        default: 10
+        x-exportParamName: "Numbytes"
+        x-optionalDataType: "Int32"
+      - name: "code"
+        in: "query"
+        description: "The response code that will be returned"
+        required: false
+        type: "integer"
+        default: 200
+        x-exportParamName: "Code"
+        x-optionalDataType: "Int32"
+      - name: "delay"
+        in: "query"
+        description: "The amount of time (in seconds) to delay before responding"
+        required: false
+        type: "number"
+        default: 2.0
+        x-exportParamName: "Delay"
+        x-optionalDataType: "Float32"
+      responses:
+        "200":
+          description: "A dripped response."
+  /encoding/utf8:
+    get:
+      tags:
+      - "Response formats"
+      summary: "Returns a UTF-8 encoded body."
+      produces:
+      - "text/html"
+      parameters: []
+      responses:
+        "200":
+          description: "Encoded UTF-8 content."
+  /etag/{etag}:
+    get:
+      tags:
+      - "Response inspection"
+      summary: "Assumes the resource has the given etag and responds to If-None-Match\
+        \ and If-Match headers appropriately."
+      produces:
+      - "application/json"
+      parameters:
+      - name: "If-None-Match"
+        in: "header"
+        required: false
+        x-exportParamName: "IfNoneMatch"
+      - name: "If-Match"
+        in: "header"
+        required: false
+        x-exportParamName: "IfMatch"
+      responses:
+        "200":
+          description: "Normal response"
+        "412":
+          description: "match"
+  /get:
+    get:
+      tags:
+      - "HTTP Methods"
+      summary: "The request's query parameters."
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        "200":
+          description: "The request's query parameters."
+  /gzip:
+    get:
+      tags:
+      - "Response formats"
+      summary: "Returns GZip-encoded data."
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        "200":
+          description: "GZip-encoded data."
+  /headers:
+    get:
+      tags:
+      - "Request inspection"
+      summary: "Return the incoming request's HTTP headers."
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        "200":
+          description: "The request's headers."
+  /hidden-basic-auth/{user}/{passwd}:
+    get:
+      tags:
+      - "Auth"
+      summary: "Prompts the user for authorization using HTTP Basic Auth."
+      produces:
+      - "application/json"
+      parameters:
+      - name: "user"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "User"
+      - name: "passwd"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Passwd"
+      responses:
+        "200":
+          description: "Sucessful authentication."
+        "404":
+          description: "Unsuccessful authentication."
+  /html:
+    get:
+      tags:
+      - "Response formats"
+      summary: "Returns a simple HTML document."
+      produces:
+      - "text/html"
+      parameters: []
+      responses:
+        "200":
+          description: "An HTML page."
+  /image:
+    get:
+      tags:
+      - "Images"
+      summary: "Returns a simple image of the type suggest by the Accept header."
+      produces:
+      - "image/webp"
+      - "image/svg+xml"
+      - "image/jpeg"
+      - "image/png"
+      - "image/*"
+      parameters: []
+      responses:
+        "200":
+          description: "An image."
+  /image/jpeg:
+    get:
+      tags:
+      - "Images"
+      summary: "Returns a simple JPEG image."
+      produces:
+      - "image/jpeg"
+      parameters: []
+      responses:
+        "200":
+          description: "A JPEG image."
+  /image/png:
+    get:
+      tags:
+      - "Images"
+      summary: "Returns a simple PNG image."
+      produces:
+      - "image/png"
+      parameters: []
+      responses:
+        "200":
+          description: "A PNG image."
+  /image/svg:
+    get:
+      tags:
+      - "Images"
+      summary: "Returns a simple SVG image."
+      produces:
+      - "image/svg+xml"
+      parameters: []
+      responses:
+        "200":
+          description: "An SVG image."
+  /image/webp:
+    get:
+      tags:
+      - "Images"
+      summary: "Returns a simple WEBP image."
+      produces:
+      - "image/webp"
+      parameters: []
+      responses:
+        "200":
+          description: "A WEBP image."
+  /ip:
+    get:
+      tags:
+      - "Request inspection"
+      summary: "Returns the requester's IP Address."
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        "200":
+          description: "The Requester's IP Address."
+  /json:
+    get:
+      tags:
+      - "Response formats"
+      summary: "Returns a simple JSON document."
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        "200":
+          description: "An JSON document."
+  /links/{n}/{offset}:
+    get:
+      tags:
+      - "Dynamic data"
+      summary: "Generate a page containing n links to other pages which do the same."
+      produces:
+      - "text/html"
+      parameters:
+      - name: "n"
+        in: "path"
+        required: true
+        type: "int"
+        x-exportParamName: "N"
+      - name: "offset"
+        in: "path"
+        required: true
+        type: "int"
+        x-exportParamName: "Offset"
+      responses:
+        "200":
+          description: "HTML links."
+  /patch:
+    patch:
+      tags:
+      - "HTTP Methods"
+      summary: "The request's PATCH parameters."
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        "200":
+          description: "The request's PATCH parameters."
+  /post:
+    post:
+      tags:
+      - "HTTP Methods"
+      summary: "The request's POST parameters."
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        "200":
+          description: "The request's POST parameters."
+  /put:
+    put:
+      tags:
+      - "HTTP Methods"
+      summary: "The request's PUT parameters."
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        "200":
+          description: "The request's PUT parameters."
+  /range/{numbytes}:
+    get:
+      tags:
+      - "Dynamic data"
+      summary: "Streams n random bytes generated with given seed, at given chunk size\
+        \ per packet."
+      produces:
+      - "application/octet-stream"
+      parameters:
+      - name: "numbytes"
+        in: "path"
+        required: true
+        type: "int"
+        x-exportParamName: "Numbytes"
+      responses:
+        "200":
+          description: "Bytes."
+  /redirect-to:
+    get:
+      tags:
+      - "Redirects"
+      summary: "302/3XX Redirects to the given URL."
+      produces:
+      - "text/html"
+      parameters:
+      - name: "url"
+        in: "query"
+        required: true
+        type: "string"
+        x-exportParamName: "Url"
+      - name: "status_code"
+        in: "query"
+        required: false
+        type: "int"
+        x-exportParamName: "StatusCode"
+        x-optionalDataType: "String"
+      responses:
+        "302":
+          description: "A redirection."
+    post:
+      tags:
+      - "Redirects"
+      summary: "302/3XX Redirects to the given URL."
+      produces:
+      - "text/html"
+      parameters:
+      - name: "url"
+        in: "formData"
+        required: true
+        type: "string"
+        x-exportParamName: "Url"
+      - name: "status_code"
+        in: "formData"
+        required: false
+        type: "int"
+        x-exportParamName: "StatusCode"
+        x-optionalDataType: "String"
+      responses:
+        "302":
+          description: "A redirection."
+    put:
+      tags:
+      - "Redirects"
+      summary: "302/3XX Redirects to the given URL."
+      produces:
+      - "text/html"
+      parameters:
+      - name: "url"
+        in: "formData"
+        required: true
+        type: "string"
+        x-exportParamName: "Url"
+      - name: "status_code"
+        in: "formData"
+        required: false
+        type: "int"
+        x-exportParamName: "StatusCode"
+        x-optionalDataType: "String"
+      responses:
+        "302":
+          description: "A redirection."
+    delete:
+      tags:
+      - "Redirects"
+      summary: "302/3XX Redirects to the given URL."
+      produces:
+      - "text/html"
+      parameters: []
+      responses:
+        "302":
+          description: "A redirection."
+    patch:
+      tags:
+      - "Redirects"
+      summary: "302/3XX Redirects to the given URL."
+      produces:
+      - "text/html"
+      parameters: []
+      responses:
+        "302":
+          description: "A redirection."
+  /redirect/{n}:
+    get:
+      tags:
+      - "Redirects"
+      summary: "302 Redirects n times."
+      produces:
+      - "text/html"
+      parameters:
+      - name: "n"
+        in: "path"
+        required: true
+        type: "int"
+        x-exportParamName: "N"
+      responses:
+        "302":
+          description: "A redirection."
+  /relative-redirect/{n}:
+    get:
+      tags:
+      - "Redirects"
+      summary: "Relatively 302 Redirects n times."
+      produces:
+      - "text/html"
+      parameters:
+      - name: "n"
+        in: "path"
+        required: true
+        type: "int"
+        x-exportParamName: "N"
+      responses:
+        "302":
+          description: "A redirection."
+  /response-headers:
+    get:
+      tags:
+      - "Response inspection"
+      summary: "Returns a set of response headers from the query string."
+      produces:
+      - "application/json"
+      parameters:
+      - name: "freeform"
+        in: "query"
+        required: false
+        allowEmptyValue: true
+        x-exportParamName: "Freeform"
+      responses:
+        "200":
+          description: "Response headers"
+    post:
+      tags:
+      - "Response inspection"
+      summary: "Returns a set of response headers from the query string."
+      produces:
+      - "application/json"
+      parameters:
+      - name: "freeform"
+        in: "query"
+        required: false
+        allowEmptyValue: true
+        x-exportParamName: "Freeform"
+      responses:
+        "200":
+          description: "Response headers"
+  /robots.txt:
+    get:
+      tags:
+      - "Response formats"
+      summary: "Returns some robots.txt rules."
+      produces:
+      - "text/plain"
+      parameters: []
+      responses:
+        "200":
+          description: "Robots file"
+  /status/{codes}:
+    get:
+      tags:
+      - "Status codes"
+      summary: "Return status code or random status code if more than one are given"
+      produces:
+      - "text/plain"
+      parameters:
+      - name: "codes"
+        in: "path"
+        required: true
+        x-exportParamName: "Codes"
+      responses:
+        "100":
+          description: "Informational responses"
+        "200":
+          description: "Success"
+        "300":
+          description: "Redirection"
+        "400":
+          description: "Client Errors"
+        "500":
+          description: "Server Errors"
+    post:
+      tags:
+      - "Status codes"
+      summary: "Return status code or random status code if more than one are given"
+      produces:
+      - "text/plain"
+      parameters:
+      - name: "codes"
+        in: "path"
+        required: true
+        x-exportParamName: "Codes"
+      responses:
+        "100":
+          description: "Informational responses"
+        "200":
+          description: "Success"
+        "300":
+          description: "Redirection"
+        "400":
+          description: "Client Errors"
+        "500":
+          description: "Server Errors"
+    put:
+      tags:
+      - "Status codes"
+      summary: "Return status code or random status code if more than one are given"
+      produces:
+      - "text/plain"
+      parameters:
+      - name: "codes"
+        in: "path"
+        required: true
+        x-exportParamName: "Codes"
+      responses:
+        "100":
+          description: "Informational responses"
+        "200":
+          description: "Success"
+        "300":
+          description: "Redirection"
+        "400":
+          description: "Client Errors"
+        "500":
+          description: "Server Errors"
+    delete:
+      tags:
+      - "Status codes"
+      summary: "Return status code or random status code if more than one are given"
+      produces:
+      - "text/plain"
+      parameters:
+      - name: "codes"
+        in: "path"
+        required: true
+        x-exportParamName: "Codes"
+      responses:
+        "100":
+          description: "Informational responses"
+        "200":
+          description: "Success"
+        "300":
+          description: "Redirection"
+        "400":
+          description: "Client Errors"
+        "500":
+          description: "Server Errors"
+    patch:
+      tags:
+      - "Status codes"
+      summary: "Return status code or random status code if more than one are given"
+      produces:
+      - "text/plain"
+      parameters:
+      - name: "codes"
+        in: "path"
+        required: true
+        x-exportParamName: "Codes"
+      responses:
+        "100":
+          description: "Informational responses"
+        "200":
+          description: "Success"
+        "300":
+          description: "Redirection"
+        "400":
+          description: "Client Errors"
+        "500":
+          description: "Server Errors"
+  /stream-bytes/{n}:
+    get:
+      tags:
+      - "Dynamic data"
+      summary: "Streams n random bytes generated with given seed, at given chunk size\
+        \ per packet."
+      produces:
+      - "application/octet-stream"
+      parameters:
+      - name: "n"
+        in: "path"
+        required: true
+        type: "int"
+        x-exportParamName: "N"
+      responses:
+        "200":
+          description: "Bytes."
+  /stream/{n}:
+    get:
+      tags:
+      - "Dynamic data"
+      summary: "Stream n JSON responses"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "n"
+        in: "path"
+        required: true
+        type: "int"
+        x-exportParamName: "N"
+      responses:
+        "200":
+          description: "Streamed JSON responses."
+  /user-agent:
+    get:
+      tags:
+      - "Request inspection"
+      summary: "Return the incoming requests's User-Agent header."
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        "200":
+          description: "The request's User-Agent header."
+  /uuid:
+    get:
+      tags:
+      - "Dynamic data"
+      summary: "Return a UUID4."
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        "200":
+          description: "A UUID4."
+  /xml:
+    get:
+      tags:
+      - "Response formats"
+      summary: "Returns a simple XML document."
+      produces:
+      - "application/xml"
+      parameters: []
+      responses:
+        "200":
+          description: "An XML document."
+definitions: {}

@@ -1,0 +1,17 @@
+{
+  "args": {},
+  "headers": {
+    "Accept": "application/json",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Accept-Language": "en,zh-CN;q=0.9,zh;q=0.8",
+    "Host": "httpbin.org",
+    "Referer": "https://httpbin.org/",
+    "Sec-Fetch-Dest": "empty",
+    "Sec-Fetch-Mode": "cors",
+    "Sec-Fetch-Site": "same-origin",
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.135 Safari/537.36",
+    "X-Amzn-Trace-Id": "Root=1-5f5b4c17-eb1cc87dc5de421aa3f24afb"
+  },
+  "origin": "171.221.170.106",
+  "url": "https://httpbin.org/get"
+}
