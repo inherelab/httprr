@@ -5,7 +5,7 @@ import (
 
 	"github.com/gookit/rux"
 	"github.com/gookit/view"
-	"github.com/inherelab/httpres-web/app"
+	"github.com/inherelab/httprr/app"
 )
 
 type HomeController struct {}

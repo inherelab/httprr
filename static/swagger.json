@@ -1,7 +1,12 @@
 {
   "basePath": "/",
   "definitions": {},
-  "host": "h.trys.cc",
+  "host": "127.0.0.1:18080",
+  "protocol": "http",
+  "schemes": [
+    "http",
+    "https"
+  ],
   "info": {
     "contact": {
       "email": "in.798@qq.com",
@@ -1740,10 +1745,6 @@
       }
     }
   },
-  "protocol": "https",
-  "schemes": [
-    "https"
-  ],
   "swagger": "2.0",
   "tags": [
     {

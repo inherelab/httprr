@@ -6,7 +6,7 @@ import (
 	"github.com/gookit/rux"
 	"github.com/gookit/rux/handlers"
 	"github.com/gookit/view"
-	"github.com/inherelab/httpres-web/route"
+	"github.com/inherelab/httprr/route"
 )
 
 var debug = true

@@ -1,20 +1,29 @@
-package internal
+package app
 
 import (
 	"net/http"
 	"strings"
 
 	"github.com/gookit/rux"
-	"github.com/inherelab/httpres-web/app"
 )
 
-func BuildBodyReplay(c *rux.Context) app.BodyModel {
+func BuildReplay(c *rux.Context) interface{} {
+	method := c.Req.Method
 
+	// no body, query data binding. like GET DELETE OPTION ....
+	if method != "POST" && method != "PUT" && method != "PATCH" {
+		return BuildBodyReplay(c)
+	}
 
-	bm := app.BodyModel{
+	return BuildQueryReplay(c)
+}
+
+func BuildBodyReplay(c *rux.Context) BodyModel {
+	bm := BodyModel{
 		Url:     c.URL().String(),
 		Origin:  "",
-		Body:    c.Req.Body,
+		Method:  c.Req.Method,
+		Body:    "",
 		Json:    nil,
 		Args:    nil,
 		Form:    nil,
@@ -25,11 +34,12 @@ func BuildBodyReplay(c *rux.Context) app.BodyModel {
 	return bm
 }
 
-func BuildQueryReplay(c *rux.Context) app.QueryModel {
-	qm := app.QueryModel{
+func BuildQueryReplay(c *rux.Context) QueryModel {
+	qm := QueryModel{
 		Url:     c.URL().String(),
 		Args:    nil,
 		Origin:  "",
+		Method:  c.Req.Method,
 		Headers: convHeaders2map(c.Req.Header),
 	}
 
