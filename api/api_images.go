@@ -11,30 +11,37 @@
 package api
 
 import (
-	"net/http"
+	"github.com/gookit/rux"
+	"github.com/inherelab/httprr/app"
 )
 
-func ImageGet(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+// Image APIs examples
+type Image struct {}
+
+func (grp *Image) AddRoutes(r *rux.Router) {
+	r.GET("", grp.Get)
+	r.GET("jpeg", grp.JpegGet)
+	r.GET("png", grp.PngGet)
+	r.GET("svg", grp.SvgGet)
+	r.GET("webp", grp.WebpGet)
 }
 
-func ImageJpegGet(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+func (*Image) Get(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }
 
-func ImagePngGet(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+func (*Image) JpegGet(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }
 
-func ImageSvgGet(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+func (*Image) PngGet(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }
 
-func ImageWebpGet(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+func (*Image) SvgGet(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
+}
+
+func (*Image) WebpGet(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }

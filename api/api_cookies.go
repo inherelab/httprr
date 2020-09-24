@@ -11,25 +11,32 @@
 package api
 
 import (
-	"net/http"
+	"github.com/gookit/rux"
+	"github.com/inherelab/httprr/app"
 )
 
-func CookiesDeleteGet(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+// Cookies APIs examples
+type Cookies struct {}
+
+func (grp *Cookies) AddRoutes(r *rux.Router) {
+	r.GET("", grp.Get)
+	r.GET("set", grp.Set)
+	r.GET("delete", grp.Delete)
+	r.GET("set/{name}/{value}", grp.SetNameValue)
 }
 
-func CookiesGet(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+func (*Cookies) Delete(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }
 
-func CookiesSetGet(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+func (*Cookies) Get(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }
 
-func CookiesSetNameValueGet(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+func (*Cookies) Set(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
+}
+
+func (*Cookies) SetNameValue(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }

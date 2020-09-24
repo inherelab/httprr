@@ -11,35 +11,30 @@
 package api
 
 import (
-	"net/http"
+	"github.com/gookit/rux"
+	"github.com/inherelab/httprr/app"
 )
 
-func BasicAuthUserPasswdGet(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+func BasicAuthUserPasswdGet(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }
 
-func BearerGet(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+func BearerGet(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }
 
-func DigestAuthQopUserPasswdAlgorithmGet(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+func DigestAuthQopUserPasswdAlgorithmGet(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }
 
-func DigestAuthQopUserPasswdAlgorithmStaleAfterGet(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+func DigestAuthQopUserPasswdAlgorithmStaleAfterGet(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }
 
-func DigestAuthQopUserPasswdGet(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+func DigestAuthQopUserPasswdGet(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }
 
-func HiddenBasicAuthUserPasswdGet(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+func HiddenBasicAuthUserPasswdGet(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }

@@ -11,70 +11,61 @@
 package api
 
 import (
-	"net/http"
+	"github.com/gookit/rux"
+	"github.com/inherelab/httprr/app"
 )
 
-func Base64ValueGet(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+// DynamicData dynamic data examples
+type DynamicData struct {}
+
+func Base64ValueGet(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }
 
-func BytesNGet(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+func BytesNGet(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }
 
-func DelayDelayDelete(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+func DelayDelayDelete(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }
 
-func DelayDelayGet(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+func DelayDelayGet(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }
 
-func DelayDelayPatch(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+func DelayDelayPatch(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }
 
-func DelayDelayPost(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+func DelayDelayPost(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }
 
-func DelayDelayPut(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+func DelayDelayPut(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }
 
-func DripGet(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+func DripGet(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }
 
-func LinksNOffsetGet(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+func LinksNOffsetGet(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }
 
-func RangeNumbytesGet(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+func RangeNumbytesGet(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }
 
-func StreamBytesNGet(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+func StreamBytesNGet(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }
 
-func StreamNGet(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+func StreamNGet(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }
 
-func UuidGet(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+func UuidGet(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }

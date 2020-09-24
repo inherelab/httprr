@@ -14,7 +14,7 @@ var debug = true
 func init() {
 	// view templates
 	view.Initialize(func(r *view.Renderer) {
-		r.ViewsDir = "views"
+		r.ViewsDir = "resource/views"
 	})
 }
 

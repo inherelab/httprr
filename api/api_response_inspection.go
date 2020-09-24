@@ -11,30 +11,31 @@
 package api
 
 import (
-	"net/http"
+	"github.com/gookit/rux"
+	"github.com/inherelab/httprr/app"
 )
 
-func CacheGet(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+// CacheGet operate API
+func CacheGet(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }
 
-func CacheValueGet(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+// CacheValueGet operate API
+func CacheValueGet(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }
 
-func EtagEtagGet(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+// EtagEtagGet operate API
+func EtagEtagGet(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }
 
-func ResponseHeadersGet(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+// ResponseHeadersGet operate API
+func ResponseHeadersGet(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }
 
-func ResponseHeadersPost(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+// ResponseHeadersPost operate API
+func ResponseHeadersPost(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }

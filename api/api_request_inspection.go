@@ -18,20 +18,14 @@ import (
 // RequestInspection Inspect the request data
 type RequestInspection struct {}
 
-func (grp *RequestInspection) AddRoutes(r *rux.Router) {
-	r.GET("headers", grp.Headers)
-	r.GET("ip", grp.Ip)
-	r.GET("user-agent", grp.UserAgent)
-}
-
-func (*RequestInspection) Headers(c *rux.Context) {
+func Headers(c *rux.Context) {
 	c.JSON(200, app.BuildReplay(c))
 }
 
-func (*RequestInspection) Ip(c *rux.Context) {
+func Ip(c *rux.Context) {
 	c.JSON(200, app.BuildReplay(c))
 }
 
-func (*RequestInspection) UserAgent(c *rux.Context) {
+func UserAgent(c *rux.Context) {
 	c.JSON(200, app.BuildReplay(c))
 }

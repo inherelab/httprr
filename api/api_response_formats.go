@@ -11,50 +11,42 @@
 package api
 
 import (
-	"net/http"
+	"github.com/gookit/rux"
+	"github.com/inherelab/httprr/app"
 )
 
-func BrotliGet(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+func BrotliGet(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }
 
-func DeflateGet(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+func DeflateGet(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }
 
-func DenyGet(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+func DenyGet(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }
 
-func EncodingUtf8Get(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+func EncodingUtf8Get(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }
 
-func GzipGet(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+func GzipGet(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }
 
-func HtmlGet(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+func HtmlGet(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }
 
-func JsonGet(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+func JsonGet(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }
 
-func RobotsTxtGet(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+func RobotsTxtGet(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }
 
-func XmlGet(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+func XmlGet(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }

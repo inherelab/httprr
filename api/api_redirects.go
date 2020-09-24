@@ -11,49 +11,40 @@
 package api
 
 import (
-	"net/http"
+	"github.com/gookit/rux"
+	"github.com/inherelab/httprr/app"
 )
 
-type RedirectApi struct {
-	
+type Redirect struct {}
+
+func AbsoluteRedirectNGet(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }
 
-func (*RedirectApi) AbsoluteRedirectNGet(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+func RedirectNGet(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }
 
-func (*RedirectApi) RedirectNGet(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+func RedirectToDelete(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }
 
-func (*RedirectApi) RedirectToDelete(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+func RedirectToGet(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }
 
-func (*RedirectApi) RedirectToGet(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+func RedirectToPatch(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }
 
-func (*RedirectApi) RedirectToPatch(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+func RedirectToPost(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }
 
-func (*RedirectApi) RedirectToPost(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+func RedirectToPut(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }
 
-func (*RedirectApi) RedirectToPut(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
-}
-
-func (*RedirectApi) RelativeRedirectNGet(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+func RelativeRedirectNGet(c *rux.Context) {
+	c.JSON(200, app.BuildReplay(c))
 }
