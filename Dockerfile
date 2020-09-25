@@ -1,5 +1,5 @@
 #
-# @build-example build . -f Dockerfile -t algoo:test
+# @build-example docker build . -f Dockerfile -t inherelab/httprr
 #
 
 ################################################################################
@@ -67,7 +67,8 @@ RUN set -ex; \
     echo "${TIMEZONE}" > /etc/timezone; \
     # - create logs, caches dir
     mkdir -p /data/logs /data/www; \
-    chown -R worker:worker /data/www; \
+#    chown -R worker:worker /data/www; \
+    chown -R www:www /data/www; \
     chmod a+x /data/www/app; \
     # && chown -R www:www /data/logs \
     echo -e "\033[42;37m Build Completed :).\033[0m\n"

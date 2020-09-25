@@ -1,0 +1,15 @@
+.idea/
+.git/
+docs/
+tests/
+temp/
+runtime/
+swagger/
+.env
+*.md
+*.log
+*.tmp
+*.map
+LICENSE
+.travis.yml
+httprr

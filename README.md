@@ -19,7 +19,7 @@ go run main.go
 ## Docker
 
 ```bash
-docker run -p 80:80 inherelab/httprr
+docker run -p 8080:8080 inherelab/httprr
 ```
 
 ## refer

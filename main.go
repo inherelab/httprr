@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/gookit/rux"
 	"github.com/gookit/rux/handlers"
@@ -9,7 +10,7 @@ import (
 	"github.com/inherelab/httprr/route"
 )
 
-var debug = true
+var debug = os.Getenv("HTTPRR_DEBUG") == "true"
 
 func init() {
 	// view templates
@@ -34,7 +35,6 @@ func main() {
 	// r.StaticFiles("", "testdata", "css|js")
 	// r.StaticFiles("/static", "testdata", "css|js|json")
 
-	// fmt.Println(r)
 	// register routes
 	r.Use(handlers.PanicsHandler())
 	if debug {
