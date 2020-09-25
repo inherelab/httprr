@@ -68,7 +68,7 @@ RUN set -ex; \
     # - create logs, caches dir
     mkdir -p /data/logs /data/www; \
 #    chown -R worker:worker /data/www; \
-    chown -R www:www /data/www; \
+#    chown -R www:www /data/www; \
     chmod a+x /data/www/app; \
     # && chown -R www:www /data/logs \
     echo -e "\033[42;37m Build Completed :).\033[0m\n"

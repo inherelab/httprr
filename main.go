@@ -17,23 +17,17 @@ func init() {
 	view.Initialize(func(r *view.Renderer) {
 		r.ViewsDir = "resource/views"
 	})
+
+	// open debug
+	rux.Debug(debug)
 }
 
 // start: go run main.go
 // access: http://127.0.0.1:18080
 func main() {
-	// open debug
-	rux.Debug(debug)
-
 	r := rux.New()
 
-	// one file
-	// r.StaticFile("/site.js", "testdata/site.js")
-	// allow any files in the dir.
 	r.StaticDir("/static", "static")
-	// add file ext limit
-	// r.StaticFiles("", "testdata", "css|js")
-	// r.StaticFiles("/static", "testdata", "css|js|json")
 
 	// register routes
 	r.Use(handlers.PanicsHandler())
