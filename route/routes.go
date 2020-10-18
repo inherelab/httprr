@@ -2,8 +2,8 @@ package route
 
 import (
 	"github.com/gookit/rux"
-	"github.com/inherelab/httprr/api"
 	"github.com/inherelab/httprr/web"
+	"github.com/inherelab/httprr/web/api"
 )
 
 // LoadRoutes to router

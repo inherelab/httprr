@@ -1,7 +1,7 @@
 {
   "basePath": "/",
   "definitions": {},
-  "host": "hrr.trys.cc",
+  "host": "{{host}}",
   "schemes": [
     "http",
     "https"

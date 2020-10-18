@@ -41,7 +41,7 @@ ARG app_env=dev
 ARG app_port
 
 ENV APP_ENV=${app_env:-"dev"} \
-    APP_PORT=${app_port:-8080} \
+    APP_PORT=${app_port:-18081} \
     BUILd_DIR=/go/project \
     TIMEZONE=${timezone:-"Asia/Shanghai"}
 

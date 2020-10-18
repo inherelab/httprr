@@ -1,18 +1,52 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"os"
 
+	"github.com/gookit/color"
+	"github.com/gookit/gcli/v2"
 	"github.com/gookit/rux"
 	"github.com/gookit/rux/handlers"
 	"github.com/gookit/view"
+	"github.com/inherelab/httprr/app"
 	"github.com/inherelab/httprr/route"
 )
 
-var debug = os.Getenv("HTTPRR_DEBUG") == "true"
+var (
+	port uint
+	debug = os.Getenv("HTTPRR_DEBUG") == "true"
+)
+
+func bindFlags()  {
+	binName := os.Args[0]
+	defDebug := os.Getenv("HTTPRR_DEBUG") == "true"
+
+	gf := gcli.NewFlags()
+	gf.FSet().Usage = func() {
+		color.Infoln("Usage:", binName, "[--OPTIONS] ...\n")
+		color.Yellow.Println("Options:")
+		gf.PrintHelpPanel()
+	}
+	gf.BoolOpt(&debug, "debug", "", defDebug, "open debug mode")
+	gf.UintOpt(&port, "port", "p", 18081, "the http server port")
+
+	err := gf.Parse(os.Args[1:])
+	if err != nil {
+		if err == flag.ErrHelp {
+			os.Exit(0)
+		}
+
+		panic(err)
+	}
+
+	app.HttpAddr = fmt.Sprintf("127.0.0.1:%d", port)
+}
 
 func init() {
+	bindFlags()
+
 	// view templates
 	view.Initialize(func(r *view.Renderer) {
 		r.ViewsDir = "resource/views"
@@ -47,7 +81,7 @@ func main() {
 	route.LoadRoutes(r)
 
 	// quick start
-	r.Listen("127.0.0.1:18080")
+	r.Listen(app.HttpAddr)
 	// apply global pre-handlers
 	// http.ListenAndServe(":18080", handlers.HTTPMethodOverrideHandler(r))
 }
