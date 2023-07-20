@@ -3,7 +3,7 @@ module github.com/inherelab/httprr
 go 1.16
 
 require (
-	github.com/gookit/color v1.5.3
+	github.com/gookit/color v1.5.4
 	github.com/gookit/gcli/v2 v2.3.4
 	github.com/gookit/rux v1.3.4
 	github.com/gookit/slog v0.5.2
